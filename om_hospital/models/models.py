@@ -8,6 +8,8 @@ class SaleOrder(models.Model):
 
 	additional_note = fields.Char(string='Additional Note')
 
+
+
 class HospitalPatient(models.Model):
     _name = 'hospital.patient'
     _inherit = 'mail.thread'
@@ -30,7 +32,40 @@ class HospitalPatient(models.Model):
 	    		else:
 	    			rec.age_group = 'major'
 
-    # @api.multi
+    doctor = fields.Many2one('hospital.doctor', string="Doctor", required=True)
+    patient_name = fields.Char(string="Name", required=True, track_visibility="always")
+    patient_age = fields.Integer(string="Age", track_visibility="always")
+    note = fields.Text(string="Note")
+    image = fields.Binary(string="Image")
+    seq_id = fields.Char(string="Id")
+    gender = fields.Selection([('male','Male'),('female','Female')]
+    	,default="male", string="gender")
+    age_group = fields.Selection([('major','major'),('minor','Minor')]
+    	,string="age group", compute='set_age_group')
+    appointment_count = fields.Char(string="Appointment Count")
+    active = fields.Boolean(default=True)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            # @api.multi
     # def appointment_open(self):
     #     return {
     #         'name': _('appointment'),
@@ -46,17 +81,3 @@ class HospitalPatient(models.Model):
     #     count = self.env[hospital.appointment].search_count(['patiet_id' ,'=', self.id ])
     #     self.appointment_count = count
 
-
-
-
-
-    patient_name = fields.Char(string="Name", required=True, track_visibility="always")
-    patient_age = fields.Integer(string="Age", track_visibility="always")
-    note = fields.Text(string="Note")
-    image = fields.Binary(string="Image")
-    seq_id = fields.Char(string="Id")
-    gender = fields.Selection([('male','Male'),('female','Female')]
-    	,default="male", string="gender")
-    age_group = fields.Selection([('major','major'),('minor','Minor')]
-    	,string="age group", compute='set_age_group')
-    appointment_count = fields.Char(string="Appointment Count")

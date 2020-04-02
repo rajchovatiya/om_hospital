@@ -1,0 +1,12 @@
+<odoo>
+  <data>
+	<report
+        id="report_patient_card"
+        model="hospital.patient"
+        string="patient reort"
+        report_type="qweb-pdf"
+        name="om_hospital.report_patient_card"
+        file="om_hospital.report_patient_card"
+	  />
+  </data>
+</odoo>
