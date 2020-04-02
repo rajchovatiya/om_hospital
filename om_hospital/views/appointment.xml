@@ -66,7 +66,7 @@
 
     <!-- actions opening views on models -->
     
-    <record model="ir.actions.act_window" id="om_hospital.action_window1">
+    <record model="ir.actions.act_window" id="om_hospital.action_window2">
       <field name="name">Appointments</field>
       <field name="res_model">hospital.appointment</field>
       <field name="view_mode">tree,form</field>
@@ -84,7 +84,7 @@
     
     <!-- menu categories -->
     
-    <menuitem name="Appoinment" id="om_hospital.menu_2" parent="om_hospital.menu_root" action="om_hospital.action_window1"/>
+    <menuitem name="Appoinment" id="om_hospital.menu_2" parent="om_hospital.menu_root" action="om_hospital.action_window2"/>
  
   </data>
 </odoo>
