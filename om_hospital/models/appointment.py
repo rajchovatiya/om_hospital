@@ -3,6 +3,17 @@
 from odoo import models, fields, api
 from odoo.exceptions import UserError, ValidationError
 
+class ResPartners(models.Model):
+    _inherit = 'res.partner'
+
+#override the create function whn click on custmor create button that time call this function
+    @api.model
+    def create(self , vals_list):
+        # import pdb; pdb.set_trace()
+        res = super(ResPartners, self).create(vals_list)
+        print("this function is working")
+        return res
+
 
 class HospitalAppointment(models.Model):
     _name = 'hospital.appointment'
@@ -22,6 +33,8 @@ class HospitalAppointment(models.Model):
 					    	  ('cancle','Cancle')],string="status", default="draft")
     doctor_note = fields.Text(string="Note")
     pharmacy_note = fields.Text(string="NOte")
+
+# state widget button onclik drat to confirm button
     @api.multi
     def action_confirm(self):
         for so in self:
