@@ -13,10 +13,13 @@
         'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
-        'views/appointment.xml'
+        'views/appointment.xml',
+        'views/doctor.xml',
+        'reports/report.xml',
+        'reports/patients.xml',
+        'security/security.xml'
     ],
     # only loaded in demonstration mode
-    #added
     'demo': [
         'demo/demo.xml',
     ],
